@@ -14,7 +14,12 @@
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e"
+        ]
       }
     }
   },
@@ -30,7 +35,7 @@
     "api": {
       "tags": []
     },
-    "api-interfaces": {
+    "interfaces": {
       "tags": []
     },
     "hangman": {
@@ -38,7 +43,9 @@
     },
     "hangman-e2e": {
       "tags": [],
-      "implicitDependencies": ["hangman"]
+      "implicitDependencies": [
+        "hangman"
+      ]
     }
   }
 }

@@ -15,8 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@hangman-application/api-interfaces": [
-        "libs/api-interfaces/src/index.ts"
+      "@hangman-application/interfaces": [
+        "libs/interfaces/src/index.ts"
       ]
     }
   },

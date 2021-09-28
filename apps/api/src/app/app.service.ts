@@ -1,17 +1,19 @@
 import { Injectable } from '@nestjs/common';
-import { Words } from '@hangman-application/api-interfaces';
+import { Words } from '@hangman-application/interfaces';
 import fakeResponse from './answers.json';
 
 @Injectable()
 export class AppService {
-  getFiveWords(): Words {
+  public getFiveWords(): Words {
     const allWords = { words: fakeResponse };
     const chosenWords = [];
-    for (let i = 0; i < 5; i++) {
-      chosenWords.push(
-        allWords.words[Math.floor(Math.random() * allWords.words.length)]
-      );
+    while (chosenWords.length < 5) {
+      const word =
+        allWords.words[Math.floor(Math.random() * allWords.words.length)];
+      chosenWords.indexOf(word) === -1
+        ? chosenWords.push(word.toLowerCase())
+        : null;
     }
-    return { words: chosenWords };
+    return { words: chosenWords } as Words;
   }
 }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Words } from '@hangman-application/api-interfaces';
+import { Words } from '@hangman-application/interfaces';
 
 @Component({
   selector: 'hangman-application-root',
@@ -8,6 +8,6 @@ import { Words } from '@hangman-application/api-interfaces';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  hello$ = this.http.get<Words>('/api/words');
-  constructor(private http: HttpClient) {}
+  words$ = this.http.get<Words>('/api/words');
+  constructor(private readonly http: HttpClient) {}
 }
