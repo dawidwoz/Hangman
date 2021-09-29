@@ -1,0 +1,4 @@
+// TODO: Remove this rather dirty fix (https://github.com/nrwl/nx/issues/3106#issuecomment-785322625) when issue is fixed.
+{
+  "extends": "../../tsconfig.base.json"
+}

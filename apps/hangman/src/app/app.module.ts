@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { WordsModule } from '@hangman-application/words';
+import { UiModule } from '@hangman-application/ui';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
@@ -13,6 +14,7 @@ import { EffectsModule } from '@ngrx/effects';
     EffectsModule.forRoot([]),
     BrowserModule,
     WordsModule,
+    UiModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
