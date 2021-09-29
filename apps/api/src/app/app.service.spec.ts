@@ -1,5 +1,4 @@
 import { Test } from '@nestjs/testing';
-
 import { AppService } from './app.service';
 
 describe('AppService', () => {
@@ -13,9 +12,9 @@ describe('AppService', () => {
     service = app.get<AppService>(AppService);
   });
 
-  describe('getData', () => {
-    it('should return "Welcome to api!"', () => {
-      expect(service.getData()).toEqual({ message: 'Welcome to api!' });
+  describe('getFiveWords', () => {
+    it('should return 5 words', () => {
+      expect(service.getFiveWords().words).toHaveLength(5);
     });
   });
 });

@@ -4,6 +4,7 @@
     "rootDir": ".",
     "sourceMap": true,
     "declaration": false,
+    "composite": false, // TODO: Remove this rather dirty fix (https://github.com/nrwl/nx/issues/3106#issuecomment-785322625) when issue is fixed. It needs to be strictly set to false to enable correct work of tsconfig in VSC.
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -15,10 +16,12 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@hangman-application/interfaces": [
-        "libs/interfaces/src/index.ts"
-      ]
+      "@hangman-application/interfaces": ["libs/interfaces/src/index.ts"],
+      "@hangman-application/words": ["libs/words/src/index.ts"]
     }
   },
+  "includes": [
+    "**/*.ts"
+  ], // TODO: Remove this rather dirty fix (https://github.com/nrwl/nx/issues/3106#issuecomment-785322625) when issue is fixed.
   "exclude": ["node_modules", "tmp"]
 }
