@@ -1,20 +1,21 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  OnChanges,
-  OnInit,
-  Output,
-  SimpleChanges,
-} from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'hangman-application-board',
   templateUrl: './board.component.html',
   styleUrls: ['./board.component.scss'],
 })
-export class BoardComponent implements OnInit, OnChanges {
-  @Input() public word: string | undefined;
+export class BoardComponent implements OnInit {
+  private _word: string | undefined;
+
+  @Input() set word(value: string | undefined) {
+    this._word = value;
+    this.wordPreparation();
+  }
+  get word(): string | undefined {
+    return this._word;
+  }
+
   @Input() public chances: number = 0;
   @Input() public streak: number = 0;
   public wordLetters: Array<string> = [];
@@ -24,9 +25,6 @@ export class BoardComponent implements OnInit, OnChanges {
 
   public ngOnInit(): void {
     this.wordPreparation();
-  }
-  public ngOnChanges(changes: SimpleChanges) {
-    if (this.word) this.wordPreparation();
   }
 
   public wordPreparation(): void {
