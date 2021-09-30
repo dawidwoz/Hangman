@@ -1,5 +1,9 @@
-<div class="[ board --wrapper ]">
-  <b class="[ board --letter ]" *ngFor="let letter of wordShown">
-    {{ letter }}
-  </b>
+<div>
+  <div class="[ board --wrapper ]">
+    <b class="[ board --letter ]" *ngFor="let letter of wordShown">
+      {{ letter }}
+    </b>
+  </div>
+  <h3 class="[ board --wrapper ]">Chances: {{ chances }}</h3>
+  <h3 class="[ board --wrapper ]">Streak: {{ streak }}</h3>
 </div>

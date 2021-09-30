@@ -23,6 +23,11 @@ export const initialState: State = {
 const wordsReducer = createReducer(
   initialState,
   on(WordsActions.init, (state) => ({ ...state, loaded: false, error: null })),
+  on(WordsActions.loadWords, (state) => ({
+    ...state,
+    loaded: false,
+    error: null,
+  })),
   on(WordsActions.loadWordsSuccess, (state, { data }) => ({
     ...state,
     words: data.words,

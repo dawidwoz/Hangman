@@ -16,9 +16,37 @@ export class MainWrapperComponent implements OnInit {
   public wordNumber: number = 0;
   public failedNumber: number = 0;
   public resetSubject: Subject<void> = new Subject<void>();
+  public isNotificationOpen: boolean = false;
+  public notificationMessage: string = '';
   public constructor(private readonly wordsFacade: WordsFacade) {}
 
   public ngOnInit(): void {
+    this.giveMeWords();
+  }
+
+  public onLetterClicked(letter: string): void {
+    const isPresent = this.boardComponent?.checkLetter(letter.toLowerCase());
+    if (!isPresent && this.failedNumber === 5) {
+      this.notificationMessage = 'Bug is in the production. Try again!';
+      this.isNotificationOpen = true;
+      this.resetApp();
+    } else !isPresent ? this.failedNumber++ : null;
+  }
+
+  public onWordGuessed(isWordGuessed: boolean): void {
+    this.wordNumber++;
+    if (this.wordNumber === 1) {
+      this.notificationMessage = "The winner is you! Let's play again!";
+      this.isNotificationOpen = true;
+      this.resetApp();
+    }
+  }
+
+  public onCloseNotification(isClose: boolean): void {
+    this.isNotificationOpen = false;
+  }
+
+  private giveMeWords(): void {
     this.wordsFacade.loadWords();
     this.wordsFacade.loaded$
       .pipe(
@@ -30,14 +58,10 @@ export class MainWrapperComponent implements OnInit {
         this.words = words;
       });
   }
-
-  public onLetterClicked(letter: string): void {
-    const isPresent = this.boardComponent?.checkLetter(letter.toLowerCase());
-    !isPresent ? this.failedNumber++ : null;
-  }
-
-  public onWordGuessed(isWordGuessed: boolean): void {
-    this.wordNumber++;
+  private resetApp(): void {
+    this.wordNumber = 0;
+    this.failedNumber = 0;
     this.resetSubject.next();
+    this.giveMeWords();
   }
 }

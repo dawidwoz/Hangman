@@ -15,6 +15,8 @@ import {
 })
 export class BoardComponent implements OnInit, OnChanges {
   @Input() public word: string | undefined;
+  @Input() public chances: number = 0;
+  @Input() public streak: number = 0;
   public wordLetters: Array<string> = [];
   public wordShown: Array<string> = [];
   @Output() wordGuessed: EventEmitter<boolean> = new EventEmitter<boolean>();

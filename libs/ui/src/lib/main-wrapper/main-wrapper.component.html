@@ -10,3 +10,8 @@
   (letterClicked)="onLetterClicked($event)"
 ></hangman-application-letters>
 <hangman-application-footer></hangman-application-footer>
+<hangman-application-notification
+  [isOpen]="isNotificationOpen"
+  [message]="notificationMessage"
+  (onCloseEvent)="onCloseNotification($event)"
+></hangman-application-notification>

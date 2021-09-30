@@ -1,1 +1,12 @@
-<p>notification works!</p>
+<div
+  class="[ notification --wrapper ]"
+  [style.display]="isOpen ? 'block' : 'none'"
+>
+  <div class="[ notification --content ]">
+    <button class="[ notification --close ]" (click)="onClose()">✖</button>
+    <p class="[ notification --text ]">{{ message }}</p>
+    <button class="[ notification --button ]" (click)="onClose()">
+      All right!
+    </button>
+  </div>
+</div>

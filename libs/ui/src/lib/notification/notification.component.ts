@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'hangman-application-notification',
   templateUrl: './notification.component.html',
-  styleUrls: ['./notification.component.scss']
+  styleUrls: ['./notification.component.scss'],
 })
-export class NotificationComponent implements OnInit {
+export class NotificationComponent {
+  @Input() public isOpen: boolean = false;
+  @Input() public message: string = '';
+  @Output() public onCloseEvent: EventEmitter<boolean> =
+    new EventEmitter<boolean>();
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
+  public onClose(): void {
+    this.isOpen = false;
+    this.onCloseEvent.emit(true);
   }
-
 }
