@@ -35,11 +35,13 @@ export class MainWrapperComponent implements OnInit {
 
   public onWordGuessed(isWordGuessed: boolean): void {
     this.wordNumber++;
-    if (this.wordNumber === 1) {
+    if (this.wordNumber === 5) {
       this.notificationMessage = "The winner is you! Let's play again!";
       this.isNotificationOpen = true;
       this.resetApp();
     }
+    this.failedNumber = 0;
+    this.resetSubject.next();
   }
 
   public onCloseNotification(isClose: boolean): void {

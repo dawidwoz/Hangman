@@ -37,7 +37,6 @@ export class BoardComponent implements OnInit, OnChanges {
   }
   public checkLetter(letter: string): boolean {
     const result: Array<number> = [];
-    console.log(this.word);
     this.wordLetters.forEach((currentLetter, index) =>
       currentLetter === letter ? result.push(index) : null
     );

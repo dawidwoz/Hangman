@@ -4,6 +4,8 @@
 <hangman-application-board
   [word]="words[wordNumber]"
   (wordGuessed)="onWordGuessed($event)"
+  [streak]="wordNumber"
+  [chances]="6 - failedNumber"
 ></hangman-application-board>
 <hangman-application-letters
   [shouldReset]="resetSubject.asObservable()"

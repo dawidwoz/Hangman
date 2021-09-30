@@ -10,5 +10,13 @@
   }
   &.--letter {
     margin: 5px;
+    font-weight: 300;
+    color: white;
+    background-color: #555555;
+    text-align: center;
+  }
+  &.--letter:disabled,
+  &.--letter[disabled] {
+    background-color: #e7e7e7;
   }
 }
