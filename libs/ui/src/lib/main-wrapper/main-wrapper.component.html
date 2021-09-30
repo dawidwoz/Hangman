@@ -1,6 +1,12 @@
-<hangman-application-hangman></hangman-application-hangman>
-<hangman-application-board [word]="words[0]"></hangman-application-board>
+<hangman-application-hangman
+  [stepOfTheBug]="failedNumber"
+></hangman-application-hangman>
+<hangman-application-board
+  [word]="words[wordNumber]"
+  (wordGuessed)="onWordGuessed($event)"
+></hangman-application-board>
 <hangman-application-letters
+  [shouldReset]="resetSubject.asObservable()"
   (letterClicked)="onLetterClicked($event)"
 ></hangman-application-letters>
 <hangman-application-footer></hangman-application-footer>

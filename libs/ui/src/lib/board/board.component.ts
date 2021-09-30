@@ -1,8 +1,10 @@
 import {
   Component,
+  EventEmitter,
   Input,
   OnChanges,
   OnInit,
+  Output,
   SimpleChanges,
 } from '@angular/core';
 
@@ -15,16 +17,17 @@ export class BoardComponent implements OnInit, OnChanges {
   @Input() public word: string | undefined;
   public wordLetters: Array<string> = [];
   public wordShown: Array<string> = [];
+  @Output() wordGuessed: EventEmitter<boolean> = new EventEmitter<boolean>();
   public constructor() {}
 
   public ngOnInit(): void {
-    this.calculateWord();
+    this.wordPreparation();
   }
   public ngOnChanges(changes: SimpleChanges) {
-    if (this.word) this.calculateWord();
+    if (this.word) this.wordPreparation();
   }
 
-  public calculateWord(): void {
+  public wordPreparation(): void {
     if (this.word) {
       this.wordLetters = Array.from(this.word);
       this.wordShown = Array.from(this.word).map(() => '_');
@@ -32,6 +35,7 @@ export class BoardComponent implements OnInit, OnChanges {
   }
   public checkLetter(letter: string): boolean {
     const result: Array<number> = [];
+    console.log(this.word);
     this.wordLetters.forEach((currentLetter, index) =>
       currentLetter === letter ? result.push(index) : null
     );
@@ -39,9 +43,15 @@ export class BoardComponent implements OnInit, OnChanges {
       result.forEach(
         (index) => (this.wordShown[index] = this.wordLetters[index])
       );
-      console.log(this.wordShown);
+      this.isWordGuessed();
       return true;
     }
     return false;
+  }
+
+  private isWordGuessed(): void {
+    this.wordLetters.toString() === this.wordShown.toString()
+      ? this.wordGuessed.emit(true)
+      : null;
   }
 }

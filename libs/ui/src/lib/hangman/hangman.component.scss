@@ -1,15 +1,18 @@
 .hangman {
+  &.--wrapper {
+    margin-bottom: 3.5rem;
+  }
   &.--line {
     position: absolute;
     top: 2.45rem;
     width: 99%;
     z-index: -1;
   }
-  &.--hangman {
-    display: flex;
-    justify-content: space-between;
-  }
   &.--image {
+    position: relative;
     height: 5rem;
+  }
+  &.--production {
+    text-align: right;
   }
 }
