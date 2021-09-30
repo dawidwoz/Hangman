@@ -1,4 +1,6 @@
 <hangman-application-hangman></hangman-application-hangman>
-<hangman-application-board></hangman-application-board>
-<hangman-application-letters></hangman-application-letters>
+<hangman-application-board [word]="words[0]"></hangman-application-board>
+<hangman-application-letters
+  (letterClicked)="onLetterClicked($event)"
+></hangman-application-letters>
 <hangman-application-footer></hangman-application-footer>

@@ -1,5 +1,10 @@
 <div class="[ letters --wrapper ]">
-  <button class="[ letters --letter ]" *ngFor="let letter of alphabet">
+  <button
+    class="[ letters --letter ]"
+    *ngFor="let letter of alphabet; let i = index"
+    [disabled]="wasClicked[i]"
+    (click)="onClick(i)"
+  >
     {{ letter }}
   </button>
 </div>

@@ -6,16 +6,17 @@ import { NotificationComponent } from './notification/notification.component';
 import { HangmanComponent } from './hangman/hangman.component';
 import { BoardComponent } from './board/board.component';
 import { FooterComponent } from './footer/footer.component';
+import { WordsModule } from '@hangman-application/words';
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [CommonModule, WordsModule],
   declarations: [
     MainWrapperComponent,
     LettersComponent,
     NotificationComponent,
     HangmanComponent,
     BoardComponent,
-    FooterComponent
+    FooterComponent,
   ],
   exports: [
     MainWrapperComponent,
@@ -23,7 +24,7 @@ import { FooterComponent } from './footer/footer.component';
     NotificationComponent,
     HangmanComponent,
     BoardComponent,
-    FooterComponent
+    FooterComponent,
   ],
 })
 export class UiModule {}

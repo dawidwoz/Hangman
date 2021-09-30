@@ -1,8 +1,5 @@
 <div class="[ board --wrapper ]">
-  <b
-    class="[ board --letter ]"
-    *ngFor="let letter of wordLetters; let i = index"
-  >
-    {{ wordShown[i] ? letter : '_' }}
+  <b class="[ board --letter ]" *ngFor="let letter of wordShown">
+    {{ letter }}
   </b>
 </div>
