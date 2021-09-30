@@ -1,0 +1,15 @@
+.hangman {
+  &.--line {
+    position: absolute;
+    top: 2.45rem;
+    width: 99%;
+    z-index: -1;
+  }
+  &.--hangman {
+    display: flex;
+    justify-content: space-between;
+  }
+  &.--image {
+    height: 5rem;
+  }
+}

@@ -1,0 +1,12 @@
+.board {
+  &.--wrapper {
+    width: 100%;
+    font-size: 400%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &.--letter {
+    padding: 0.5rem;
+  }
+}

@@ -1,0 +1,13 @@
+.letters {
+  &.--wrapper {
+    width: 100%;
+    font-size: 400%;
+    margin-top: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &.--letter {
+    margin: 5px;
+  }
+}
